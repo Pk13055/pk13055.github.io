@@ -1,19 +1,21 @@
 ---
 title: 'About Me'
-avatar: './me.jpg'
+avatar: './me.png'
 skills:
-  - JavaScript (ES6+)
-  - HTML & (S)CSS
-  - React
+  - PyTorch
   - Vue
-  - Node.js
-  - WordPress
+  - Docker
+  - Apache Airflow
+  - Python
+  - FastAPI
 ---
 
-Hello! I'm Brittany, a software engineer based in Boston, MA.
+Hello! I'm Pratik, a final year student and software engineer based in Hyderabad, India.
 
-I enjoy creating things that live on the internet, whether that be websites, applications, or anything in between. My goal is to always build products that provide pixel-perfect, performant experiences.
+I enjoy building pipelines and architecture for businesses to accelerate/scale their ideas.
 
-Shortly after graduating from [Northeastern University](https://www.ccis.northeastern.edu/), I joined the engineering team at [Upstatement](https://www.upstatement.com/) where I work on a wide variety of interesting and meaningful projects on a daily basis.
+Since joining [IIIT Hyderabad](https://iiit.ac.in/), I have worked a variety of software engineering jobs ranging from developing simple web apps to building complex machine learning models. The first two years of university primarily revolved around building basic tech skills (web dev, git, etc). As of the last two years, I have been pri
+
+joined the engineering team at [Upstatement](https://www.upstatement.com/) where I work on a wide variety of interesting and meaningful projects on a daily basis.
 
 Here are a few technologies I've been working with recently:
