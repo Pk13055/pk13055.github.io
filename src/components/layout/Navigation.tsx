@@ -4,19 +4,19 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
-import { motion } from "framer-motion";
 import {
-  Briefcase,
-  Code,
-  FolderOpen,
-  GraduationCap,
-  Home,
-  Mail,
-  Microscope,
-  Star,
-  User,
-  Users,
-} from "lucide-react";
+  IconBriefcase,
+  IconCode,
+  IconFolderOpen,
+  IconHome,
+  IconMail,
+  IconMicroscope,
+  IconSchool,
+  IconStar,
+  IconUser,
+  IconUsers,
+} from "@tabler/icons-react";
+import { motion } from "framer-motion";
 
 interface NavigationProps {
   activeSection: string;
@@ -28,16 +28,16 @@ export function Navigation({
   onSectionChange,
 }: NavigationProps) {
   const navigationItems = [
-    { id: "home", label: "Home", icon: Home },
-    { id: "about", label: "About", icon: User },
-    { id: "highlights", label: "Highlights", icon: Star },
-    { id: "experience", label: "Experience", icon: Briefcase },
-    { id: "research", label: "Research", icon: Microscope },
-    { id: "projects", label: "Projects", icon: FolderOpen },
-    { id: "skills", label: "Skills", icon: Code },
-    { id: "education", label: "Education", icon: GraduationCap },
-    { id: "other-experience", label: "Leadership", icon: Users },
-    { id: "contact", label: "Contact", icon: Mail },
+    { id: "home", label: "Home", icon: IconHome },
+    { id: "about", label: "About", icon: IconUser },
+    { id: "highlights", label: "Highlights", icon: IconStar },
+    { id: "experience", label: "Experience", icon: IconBriefcase },
+    { id: "research", label: "Research", icon: IconMicroscope },
+    { id: "projects", label: "Projects", icon: IconFolderOpen },
+    { id: "skills", label: "Skills", icon: IconCode },
+    { id: "education", label: "Education", icon: IconSchool },
+    { id: "other-experience", label: "Leadership", icon: IconUsers },
+    { id: "contact", label: "Contact", icon: IconMail },
   ];
 
   // Gradient colors for each section
@@ -133,9 +133,9 @@ export function Navigation({
                         }}
                         whileTap={{ scale: 0.8 }}
                         onClick={() => onSectionChange(id)}
-                        className={`relative flex items-center justify-center w-12 h-12 rounded-full transition-all duration-300 ${
+                        className={`relative flex items-center justify-center w-12 h-12 rounded-full transition-all duration-300 overflow-hidden ${
                           isActive
-                            ? `${activeGradient.bg} text-white shadow-xl`
+                            ? "text-white shadow-xl"
                             : "hover:bg-muted/50"
                         }`}
                         animate={{
@@ -151,44 +151,29 @@ export function Navigation({
                           zIndex: isActive ? 30 : 10,
                         }}
                       >
-                        <Icon size={20} />
+                        {/* Gradient background that fades behind the icon */}
+                        {isActive && (
+                          <motion.div
+                            initial={{ opacity: 0, scale: 0.8 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            exit={{ opacity: 0, scale: 0.8 }}
+                            transition={{ duration: 0.3 }}
+                            className={`absolute inset-0 ${activeGradient.bg}`}
+                            style={{
+                              maskImage:
+                                "radial-gradient(circle at center, transparent 20%, black 60%)",
+                              WebkitMaskImage:
+                                "radial-gradient(circle at center, transparent 20%, black 60%)",
+                            }}
+                          />
+                        )}
+                        <Icon size={20} className="relative z-10" />
                       </motion.button>
                     </TooltipTrigger>
                     <TooltipContent side="left" className="font-medium">
                       {label}
                     </TooltipContent>
                   </Tooltip>
-
-                  {/* macOS dock-style magnification background */}
-                  <motion.div
-                    className={`absolute inset-0 rounded-full ${
-                      isActive
-                        ? `${activeGradient.bg} opacity-30`
-                        : "bg-muted/20"
-                    }`}
-                    initial={{ scale: 0, opacity: 0 }}
-                    whileHover={{
-                      scale: 2.2,
-                      opacity: 1,
-                      transition: {
-                        type: "spring",
-                        stiffness: 400,
-                        damping: 25,
-                      },
-                    }}
-                    animate={{
-                      scale: isActive ? 1.6 : 0,
-                      opacity: isActive ? 1 : 0,
-                      transition: {
-                        type: "spring",
-                        stiffness: 300,
-                        damping: 20,
-                      },
-                    }}
-                    style={{
-                      zIndex: 1,
-                    }}
-                  />
 
                   {/* Surrounding icons scale effect */}
                   <motion.div
