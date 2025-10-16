@@ -46,7 +46,7 @@ export function Education() {
                   <CardDescription className="text-base font-semibold text-foreground">
                     Computer Science and Engineering
                   </CardDescription>
-                  <CardDescription className="text-sm">
+                  <CardDescription className="text-sm break-words">
                     International Institute of Information Technology,
                     Hyderabad, India
                   </CardDescription>

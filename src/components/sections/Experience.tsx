@@ -91,13 +91,13 @@ export function Experience() {
                 <div className="p-[1px] bg-gradient-to-r from-orange-400 to-red-500 rounded-lg hover:shadow-lg transition-all group">
                   <Card className="border-l-4 border-l-primary h-full">
                     <CardHeader>
-                      <CardTitle className="text-xl flex flex-wrap items-baseline gap-2">
-                        <span>{job.title}</span>
-                        <span className="bg-gradient-to-r from-orange-400 to-red-500 bg-clip-text text-transparent">
+                      <CardTitle className="text-xl flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-2">
+                        <span className="break-words">{job.title}</span>
+                        <span className="bg-gradient-to-r from-orange-400 to-red-500 bg-clip-text text-transparent break-words">
                           @ {job.company}
                         </span>
                         {job.location && (
-                          <span className="text-sm text-muted-foreground">
+                          <span className="text-sm text-muted-foreground break-words">
                             {job.location}
                           </span>
                         )}
