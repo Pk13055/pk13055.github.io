@@ -1,0 +1,16 @@
+/* TEAM */
+Developer: Pratik K
+Site: https://pk13055.com
+GitHub: https://github.com/pk13055
+LinkedIn: https://linkedin.com/in/pk13055
+Location: USA
+
+/* SITE */
+Last update: 2025-10-18
+Standards: HTML5, CSS3, JavaScript ES6+
+Components: React, TypeScript, Tailwind CSS, Framer Motion
+Software: VS Code, Vite
+
+/* THANKS */
+To the open-source community for incredible tools and libraries.
+
