@@ -7,6 +7,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
+import { IconUsers } from "@tabler/icons-react";
 
 const experiences = [
   {
@@ -56,7 +57,8 @@ export function OtherExperience() {
       <div className="max-w-7xl mx-auto px-4 sm:px-8">
         <AnimatedSection>
           <AnimatedItem className="flex items-center gap-4 mb-12">
-            <h2 className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-teal-400 to-cyan-500 bg-clip-text text-transparent">
+            <IconUsers className="w-8 h-8 text-teal-400" />
+            <h2 className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-teal-400 to-cyan-500 bg-clip-text text-transparent animate-gradient">
               Other Experience & Leadership
             </h2>
             <Separator className="flex-1 max-w-xs" />

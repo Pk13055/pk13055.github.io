@@ -65,7 +65,7 @@ export function Highlights() {
         <AnimatedSection>
           <AnimatedItem className="flex items-center gap-4 mb-12">
             <IconSparkles className="w-8 h-8 text-emerald-400" />
-            <h2 className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-emerald-400 to-green-500 bg-clip-text text-transparent">
+            <h2 className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-emerald-400 to-green-500 bg-clip-text text-transparent animate-gradient">
               Key Highlights
             </h2>
             <Separator className="flex-1 max-w-xs" />

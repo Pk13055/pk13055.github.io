@@ -16,6 +16,10 @@ import { Projects } from "@/components/sections/Projects";
 import { Research } from "@/components/sections/Research";
 import { Skills } from "@/components/sections/Skills";
 
+// SEO Component
+import { SEO } from "@/components/SEO";
+import { generateCompleteStructuredData } from "@/lib/seo";
+
 function App() {
   const [activeSection, setActiveSection] = useState("home");
 
@@ -64,25 +68,28 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-background">
-      <Navigation
-        activeSection={activeSection}
-        onSectionChange={scrollToSection}
-      />
+    <>
+      <SEO structuredData={generateCompleteStructuredData()} />
+      <div className="min-h-screen bg-background">
+        <Navigation
+          activeSection={activeSection}
+          onSectionChange={scrollToSection}
+        />
 
-      <Hero onContactClick={() => scrollToSection("contact")} />
-      <About />
-      <Highlights />
-      <Experience />
-      <Research />
-      <Projects />
-      <Skills />
-      <Education />
-      <OtherExperience />
-      <Contact />
+        <Hero onContactClick={() => scrollToSection("contact")} />
+        <About />
+        <Highlights />
+        <Experience />
+        <Research />
+        <Projects />
+        <Skills />
+        <Education />
+        <OtherExperience />
+        <Contact />
 
-      <Footer />
-    </div>
+        <Footer />
+      </div>
+    </>
   );
 }
 

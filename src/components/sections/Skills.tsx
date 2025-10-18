@@ -7,10 +7,22 @@ import {
   IconCloud,
   IconCode,
   IconDatabase,
+  IconRobot,
   IconWorld,
 } from "@tabler/icons-react";
 
 const skillGroups = [
+  {
+    category: "LLM",
+    icon: IconRobot,
+    skills: [
+      "OpenAI (Text + Realtime (audio) + Agentic)",
+      "Gemini (Realtime (audio + video) + text + agentic)",
+      "Browser Use",
+      "LangChain",
+      "CrewAI",
+    ],
+  },
   {
     category: "Machine Learning",
     icon: IconBrain,
@@ -29,9 +41,13 @@ const skillGroups = [
     icon: IconCode,
     skills: [
       "Python",
+      "Pinescript",
+      "MQL4/5",
       "C++",
       "C",
       "Java",
+      "ECMAScript",
+      "TypeScript",
       "Shell scripting",
       "Matlab",
       "PHP",
@@ -81,7 +97,8 @@ export function Skills() {
       <div className="max-w-7xl mx-auto px-4 sm:px-8">
         <AnimatedSection>
           <AnimatedItem className="flex items-center gap-4 mb-12">
-            <h2 className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-lime-400 to-green-500 bg-clip-text text-transparent">
+            <IconCode className="w-8 h-8 text-lime-400" />
+            <h2 className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-lime-400 to-green-500 bg-clip-text text-transparent animate-gradient">
               Technical Skills
             </h2>
             <Separator className="flex-1 max-w-xs" />

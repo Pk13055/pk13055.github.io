@@ -1,6 +1,7 @@
 import { AnimatedItem, AnimatedSection } from "@/components/ui/AnimatedSection";
 import { Button } from "@/components/ui/button";
 import {
+  IconBrandFacebook,
   IconBrandGithub,
   IconBrandLinkedin,
   IconExternalLink,
@@ -18,6 +19,11 @@ const socialLinks = [
     icon: IconBrandLinkedin,
     label: "LinkedIn",
     href: "https://linkedin.com/in/pk13055",
+  },
+  {
+    icon: IconBrandFacebook,
+    label: "Facebook",
+    href: "https://fb.com/pk13055",
   },
   {
     icon: IconMail,
@@ -39,17 +45,19 @@ export function Contact() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-8 text-center">
         <AnimatedSection className="max-w-2xl mx-auto">
-          <AnimatedItem>
-            <h2 className="text-4xl font-bold bg-gradient-to-r from-rose-400 to-pink-500 bg-clip-text text-transparent mb-6">
+          <AnimatedItem className="flex items-center justify-center gap-4 mb-6">
+            <IconMail className="w-8 h-8 text-rose-400" />
+            <h2 className="text-4xl font-bold bg-gradient-to-r from-rose-400 to-pink-500 bg-clip-text text-transparent animate-gradient">
               Get In Touch
             </h2>
           </AnimatedItem>
           <AnimatedItem>
             <p className="text-muted-foreground text-lg leading-relaxed mb-12">
-              I'm always interested in hearing about new opportunities,
-              collaborations, or just connecting with fellow innovators. Whether
-              you have a question or just want to say hi, I'll try my best to
-              get back to you!
+              Open to full-time AI/ML engineering roles, freelance consulting
+              projects, and research collaborations. Whether you're looking for
+              expertise in algorithmic trading, computer vision, deep learning,
+              or building production ML systems, I'd love to hear from you.
+              Available for opportunities worldwide and remote work.
             </p>
           </AnimatedItem>
           <AnimatedItem>

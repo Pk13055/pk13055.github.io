@@ -1,9 +1,5 @@
 import { Button } from "@/components/ui/button";
-import {
-  IconBrandGithub,
-  IconBrandLinkedin,
-  IconMail,
-} from "@tabler/icons-react";
+import { IconMail } from "@tabler/icons-react";
 import { motion } from "framer-motion";
 
 interface HeroProps {
@@ -42,8 +38,10 @@ export function Hero({ onContactClick }: HeroProps) {
             <div className="p-[1px] bg-gradient-to-r from-purple-400 via-violet-500 to-purple-600 rounded-full hover:shadow-2xl transition-all">
               <img
                 src="/avatar.png"
-                alt="Pratik K"
+                alt="Pratik K - AI and Machine Learning Engineer specializing in Algorithmic Trading and Computer Vision"
                 className="w-48 h-48 sm:w-56 sm:h-56 lg:w-64 lg:h-64 rounded-full object-cover shadow-xl"
+                width="256"
+                height="256"
               />
             </div>
           </motion.div>
@@ -52,29 +50,29 @@ export function Hero({ onContactClick }: HeroProps) {
           <div className="flex-1 text-center lg:text-left">
             <motion.h1
               variants={fadeInUp}
-              className="text-5xl sm:text-6xl md:text-7xl font-bold bg-gradient-to-r from-purple-400 via-violet-500 to-purple-600 bg-clip-text text-transparent mb-4"
+              className="text-5xl sm:text-6xl md:text-7xl font-bold bg-gradient-to-r from-purple-400 via-violet-500 to-purple-600 bg-clip-text text-transparent mb-4 animate-gradient"
             >
               Pratik K
             </motion.h1>
             <motion.h2
               variants={fadeInUp}
-              className="text-3xl sm:text-4xl md:text-5xl font-bold bg-gradient-to-r from-purple-300 to-violet-400 bg-clip-text text-transparent mb-6"
+              className="text-3xl sm:text-4xl md:text-5xl font-bold bg-gradient-to-r from-purple-300 to-violet-400 bg-clip-text text-transparent mb-6 animate-gradient"
             >
-              AI & Machine Learning Innovator
+              AI & Machine Learning Engineer | Algorithmic Trading | Computer
+              Vision
             </motion.h2>
             <motion.p
               variants={fadeInUp}
               className="text-muted-foreground max-w-2xl text-base sm:text-lg leading-relaxed mb-8"
             >
-              Building intelligent, scalable systems to solve complex real-world
-              problems. From algorithmic trading bots to computer vision
-              systems, I architect AI-first solutions that deliver significant
-              business and social value.
+              AI/ML specialist with 5+ years of experience building intelligent,
+              scalable systems using PyTorch, TensorFlow, and deep learning.
+              Expert in algorithmic trading bots, computer vision systems, and
+              end-to-end machine learning pipelines. I architect AI-first
+              solutions that deliver measurable business value across finance,
+              healthcare, and autonomous systems.
             </motion.p>
-            <motion.div
-              variants={fadeInUp}
-              className="flex flex-wrap gap-4 mb-8"
-            >
+            <motion.div variants={fadeInUp} className="flex flex-wrap gap-4">
               <Button
                 size="lg"
                 variant="default"
@@ -84,30 +82,6 @@ export function Hero({ onContactClick }: HeroProps) {
                 <IconMail className="mr-2 h-4 w-4" />
                 Get In Touch
               </Button>
-            </motion.div>
-            <motion.div variants={fadeInUp} className="flex gap-4">
-              <a
-                href="https://github.com/pk13055"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-purple-400 transition-colors"
-              >
-                <IconBrandGithub className="w-6 h-6" />
-              </a>
-              <a
-                href="https://linkedin.com/in/pk13055"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-purple-400 transition-colors"
-              >
-                <IconBrandLinkedin className="w-6 h-6" />
-              </a>
-              <a
-                href="mailto:pratik.k98@yahoo.com"
-                className="text-muted-foreground hover:text-purple-400 transition-colors"
-              >
-                <IconMail className="w-6 h-6" />
-              </a>
             </motion.div>
           </div>
         </motion.div>

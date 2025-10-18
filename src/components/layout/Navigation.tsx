@@ -12,7 +12,7 @@ import {
   IconMail,
   IconMicroscope,
   IconSchool,
-  IconStar,
+  IconSparkles,
   IconUser,
   IconUsers,
 } from "@tabler/icons-react";
@@ -30,7 +30,7 @@ export function Navigation({
   const navigationItems = [
     { id: "home", label: "Home", icon: IconHome },
     { id: "about", label: "About", icon: IconUser },
-    { id: "highlights", label: "Highlights", icon: IconStar },
+    { id: "highlights", label: "Highlights", icon: IconSparkles },
     { id: "experience", label: "Experience", icon: IconBriefcase },
     { id: "research", label: "Research", icon: IconMicroscope },
     { id: "projects", label: "Projects", icon: IconFolderOpen },

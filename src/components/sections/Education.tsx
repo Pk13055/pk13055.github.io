@@ -8,6 +8,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
+import { IconSchool } from "@tabler/icons-react";
 
 const courses = [
   "Machine Learning I*",
@@ -31,7 +32,8 @@ export function Education() {
       <div className="max-w-7xl mx-auto px-4 sm:px-8">
         <AnimatedSection>
           <AnimatedItem className="flex items-center gap-4 mb-12">
-            <h2 className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-indigo-400 to-purple-500 bg-clip-text text-transparent">
+            <IconSchool className="w-8 h-8 text-indigo-400" />
+            <h2 className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-indigo-400 to-purple-500 bg-clip-text text-transparent animate-gradient">
               Education
             </h2>
             <Separator className="flex-1 max-w-xs" />
