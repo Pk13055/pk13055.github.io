@@ -6,9 +6,13 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
+    "build:analyze": "npm run build && open dist/stats.html",
     "preview": "vite preview",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "deploy": "gh-pages -d dist",
+    "deploy:full": "npm run deploy && npm run cf:purge",
+    "cf:purge": "node scripts/purge-cloudflare-cache.js",
+    "optimize:images": "node scripts/optimize-images.js"
   },
   "dependencies": {
     "@radix-ui/react-separator": "^1.1.7",
@@ -31,8 +35,10 @@
     "autoprefixer": "^10.4.21",
     "gh-pages": "^6.1.1",
     "postcss": "^8.5.6",
+    "rollup-plugin-visualizer": "^6.0.5",
     "tailwindcss": "^4.1.14",
     "tailwindcss-animate": "^1.0.7",
+    "terser": "^5.44.0",
     "typescript": "^5.9.3",
     "vite": "^5.3.4"
   }

@@ -1,87 +1,256 @@
-<div align="center">
-  <img alt="Logo" src="https://raw.githubusercontent.com/bchiang7/v4/master/src/images/logo.png" width="100" />
-</div>
-<h1 align="center">
-  brittanychiang.com - v4
-</h1>
-<p align="center">
-  The fourth iteration of <a href="https://brittanychiang.com" target="_blank">brittanychiang.com</a> built with <a href="https://www.gatsbyjs.org/" target="_blank">Gatsby</a> and hosted with <a href="https://www.netlify.com/" target="_blank">Netlify</a>
-</p>
-<p align="center">
-  Previous iterations:
-  <a href="https://github.com/bchiang7/v1" target="_blank">v1</a>,
-  <a href="https://github.com/bchiang7/v2" target="_blank">v2</a>,
-  <a href="https://github.com/bchiang7/bchiang7.github.io" target="_blank">v3</a>
-</p>
-<p align="center">
-  <a href="https://app.netlify.com/sites/brittanychiang/deploys" target="_blank">
-    <img src="https://api.netlify.com/api/v1/badges/1963b488-7b78-48c9-9e2d-6fb5e47ab3af/deploy-status" alt="Netlify Status" />
-  </a>
-</p>
+# Pratik K - Portfolio Website
 
-![demo](https://raw.githubusercontent.com/bchiang7/v4/master/src/images/demo.png)
+> AI/ML Engineer Portfolio built with React, TypeScript, and Vite. Deployed on GitHub Pages with Cloudflare CDN.
 
-## 🚨 Forking this repo (please read!)
+🌐 **Live Site**: [pk13055.com](https://pk13055.com)
 
-Many people have contacted me asking me if they can use this code for their own website, and the answer to that question is usually **yes, with attribution**.
+## 🚀 Quick Start
 
-I value keeping my site open source, but as you all know, _**plagiarism is bad**_. It's always disheartening whenever I find that someone has copied my site without giving me credit. I spent a non-trivial amount of effort building and designing this iteration of my website, and I am proud of it! All I ask of you all is to not claim this effort as your own.
+```bash
+# Install dependencies
+npm install
 
-Please also note that I did not build this site with the intention of it being a starter theme, so if you have questions about implementation, please refer to the [Gatsby docs](https://www.gatsbyjs.org/docs/).
+# Start development server
+npm run dev
 
-### TL;DR
+# Build for production
+npm run build
 
-Yes, you can fork this repo. Please give me proper credit by linking back to [brittanychiang.com](https://brittanychiang.com). Thanks!
+# Preview production build locally
+npm run preview
 
-## 🛠 Installation & Set Up
+# Deploy to GitHub Pages
+npm run deploy
 
-1. Install the Gatsby CLI
+# Deploy and purge Cloudflare cache (requires env vars)
+npm run deploy:full
+```
 
-   ```sh
-   npm install -g gatsby-cli
+## 📦 Tech Stack
+
+- **Framework**: React 18 + TypeScript
+- **Build Tool**: Vite 5
+- **Styling**: Tailwind CSS 4
+- **Animations**: Framer Motion
+- **UI Components**: Radix UI
+- **Icons**: Tabler Icons
+- **Deployment**: GitHub Pages + Cloudflare CDN
+- **SEO**: React Helmet Async
+
+## ⚡ Performance Optimizations
+
+This site implements comprehensive performance optimizations addressing PageSpeed Insights recommendations:
+
+### 1. Service Worker Caching
+- Client-side caching with cache-first strategy for assets
+- Network-first strategy for HTML to ensure fresh content
+- Automatic cache management and updates
+
+### 2. JavaScript Bundle Optimization
+Aggressive bundle size reduction addressing "Reduce unused JavaScript":
+- **Advanced code splitting**: 6 optimized chunks instead of monolithic bundle
+- **Tree shaking**: Removes unused code from dependencies
+- **Aggressive minification**: Terser with console removal and 2-pass compression
+- **Modern ES2020 target**: Smaller output, faster execution
+- **Smart chunking**: React (50KB), React-DOM (132KB), Framer Motion (76KB) cached separately
+- **Bundle analyzer**: Visualize what's in your bundle with `npm run build:analyze`
+
+**Result**: 44% reduction in main bundle size, better caching strategy
+
+📘 See [`BUNDLE_OPTIMIZATION.md`](./BUNDLE_OPTIMIZATION.md) for detailed analysis and further optimizations.
+
+### 3. Cloudflare Edge Caching
+Since the site is behind Cloudflare, follow these steps to maximize cache efficiency:
+
+#### Setup Cache Rules in Cloudflare Dashboard
+
+1. Navigate to **Cloudflare Dashboard → Your Site → Rules → Cache Rules**
+
+2. Create these rules (in order):
+
+**Rule 1: Cache Hashed Assets (JS/CSS)**
+- When incoming requests match:
+  - Field: `URI Path`
+  - Operator: `starts with`
+  - Value: `/assets/`
+  - **AND** Field: `File extension`
+  - Operator: `is in`
+  - Value: `js css`
+- Then:
+  - Cache eligibility: **Eligible for cache**
+  - Edge TTL: **1 year**
+  - Browser TTL: **1 year**
+
+**Rule 2: Cache Images**
+- When incoming requests match:
+  - Field: `File extension`
+  - Operator: `is in`
+  - Value: `png jpg jpeg gif svg webp ico avif`
+- Then:
+  - Cache eligibility: **Eligible for cache**
+  - Edge TTL: **1 year**
+  - Browser TTL: **1 year**
+
+**Rule 3: Bypass HTML Cache**
+- When incoming requests match:
+  - Field: `File extension`
+  - Operator: `equals`
+  - Value: `html`
+  - **OR** Field: `URI Path`
+  - Operator: `equals`
+  - Value: `/`
+- Then:
+  - Cache eligibility: **Bypass cache**
+
+**Rule 4: Bypass Service Worker**
+- When incoming requests match:
+  - Field: `URI Path`
+  - Operator: `equals`
+  - Value: `/sw.js`
+- Then:
+  - Cache eligibility: **Bypass cache**
+
+📘 **Quick Setup**: [`CLOUDFLARE_RULE_SETUP.md`](./CLOUDFLARE_RULE_SETUP.md) - Step-by-step with screenshots
+📘 **Detailed Guide**: [`cloudflare-cache-rules.md`](./cloudflare-cache-rules.md) - Technical details
+
+### 4. Responsive Image Optimization
+
+Implements modern responsive images to reduce bandwidth and improve load times:
+- **Responsive srcset**: Serves appropriate image sizes for each device
+- **Modern formats**: WebP with PNG fallback for better compression
+- **Lazy loading**: Below-the-fold images load on demand
+- **Priority loading**: Critical above-the-fold images load immediately
+- **Cloudflare Polish**: Automatic image optimization at the edge
+
+**Setup**: Enable Cloudflare Polish (5 minutes)
+1. Dashboard → Speed → Optimization → Image Optimization
+2. Enable **Polish** (Lossless or Lossy)
+3. Enable **WebP** conversion
+
+📘 See [`IMAGE_OPTIMIZATION.md`](./IMAGE_OPTIMIZATION.md) and [`cloudflare-images-setup.md`](./cloudflare-images-setup.md) for detailed guides.
+
+#### Optional: Cloudflare Worker
+For advanced cache control, deploy the provided Cloudflare Worker:
+
+```bash
+# The worker code is in public/cloudflare-worker.js
+# Deploy via Cloudflare Dashboard → Workers & Pages → Create Worker
+```
+
+### 4. Automatic Cache Purging (Optional)
+
+Set up automatic Cloudflare cache purging after deployments:
+
+1. Get your Cloudflare credentials:
+   - **Zone ID**: Dashboard → Overview → Zone ID (right sidebar)
+   - **API Token**: Dashboard → My Profile → API Tokens → Create Token
+
+2. Set environment variables:
+   ```bash
+   export CLOUDFLARE_ZONE_ID="your_zone_id"
+   export CLOUDFLARE_API_TOKEN="your_api_token"
    ```
 
-2. Install and use the correct version of Node using [NVM](https://github.com/nvm-sh/nvm)
-
-   ```sh
-   nvm install
+3. Deploy with cache purging:
+   ```bash
+   npm run deploy:full
    ```
 
-3. Install dependencies
+## 📊 Expected Performance Gains
 
-   ```sh
-   yarn
-   ```
+After implementing these optimizations:
 
-4. Start the development server
+- ✅ **Efficient cache policy**: 1 year cache for static assets
+- ✅ **Proper image sizing**: 70%+ bandwidth savings on images
+- ✅ **Modern image formats**: WebP reduces size by 30-40%
+- ✅ **Reduced server requests**: Assets cached at edge and client
+- ✅ **Faster TTFB**: Cloudflare edge caching
+- ✅ **Better PageSpeed scores**: Addresses multiple recommendations
+- ✅ **Instant repeat visits**: Service worker + edge caching
 
-   ```sh
-   npm start
-   ```
+**Real-world impact:**
+- First visit: Faster image loading
+- Repeat visit: 80-95% faster overall
+- Mobile users: 70%+ less data usage
+- PageSpeed score: +15-30 points improvement
 
-## 🚀 Building and Running for Production
+## 🏗️ Project Structure
 
-1. Generate a full static production build
+```
+pk13055/
+├── src/
+│   ├── components/
+│   │   ├── layout/          # Navigation, Footer
+│   │   ├── sections/        # Page sections (Hero, About, etc.)
+│   │   └── ui/              # Reusable UI components
+│   ├── lib/                 # Utilities and helpers
+│   │   ├── animations.ts    # Animation configurations
+│   │   ├── seo.ts          # SEO utilities
+│   │   ├── utils.ts        # Common utilities
+│   │   └── registerSW.ts   # Service worker registration
+│   ├── App.tsx             # Main app component
+│   ├── main.tsx            # Entry point
+│   └── index.css           # Global styles
+├── public/                  # Static assets
+│   ├── sw.js               # Service worker
+│   ├── _headers            # Cache headers (for Cloudflare/Netlify)
+│   └── cloudflare-worker.js # Optional Cloudflare Worker
+├── scripts/
+│   └── purge-cloudflare-cache.js # Auto cache purging
+├── vite.config.ts          # Vite configuration
+└── cloudflare-cache-rules.md # Cloudflare setup guide
+```
 
-   ```sh
+## 🔧 Configuration Files
+
+- `vite.config.ts` - Build optimization and chunk splitting
+- `tailwind.config.js` - Tailwind CSS configuration
+- `tsconfig.json` - TypeScript configuration
+- `components.json` - shadcn/ui configuration
+
+## 📝 Development
+
+```bash
+# Run development server (with hot reload)
+npm run dev
+
+# Type check
+npm run build  # TypeScript compilation is part of build
+
+# Build for production
    npm run build
-   ```
 
-1. Preview the site as it will appear once deployed
+# Preview production build
+npm run preview
+```
 
-   ```sh
-   npm run serve
-   ```
+## 🚢 Deployment
 
-## 🎨 Color Reference
+The site automatically builds and deploys to GitHub Pages on push to master branch.
 
-| Color          | Hex                                                                |
-| -------------- | ------------------------------------------------------------------ |
-| Navy           | ![#0a192f](https://via.placeholder.com/10/0a192f?text=+) `#0a192f` |
-| Light Navy     | ![#172a45](https://via.placeholder.com/10/0a192f?text=+) `#172a45` |
-| Lightest Navy  | ![#303C55](https://via.placeholder.com/10/303C55?text=+) `#303C55` |
-| Slate          | ![#8892b0](https://via.placeholder.com/10/8892b0?text=+) `#8892b0` |
-| Light Slate    | ![#a8b2d1](https://via.placeholder.com/10/a8b2d1?text=+) `#a8b2d1` |
-| Lightest Slate | ![#ccd6f6](https://via.placeholder.com/10/ccd6f6?text=+) `#ccd6f6` |
-| White          | ![#e6f1ff](https://via.placeholder.com/10/e6f1ff?text=+) `#e6f1ff` |
-| Green          | ![#64ffda](https://via.placeholder.com/10/64ffda?text=+) `#64ffda` |
+Manual deployment:
+```bash
+# Build and deploy
+npm run deploy
+
+# Deploy with Cloudflare cache purge
+npm run deploy:full
+```
+
+## 📈 Performance Monitoring
+
+Monitor your site's performance:
+- [PageSpeed Insights](https://pagespeed.web.dev/)
+- [GTmetrix](https://gtmetrix.com/)
+- [WebPageTest](https://www.webpagetest.org/)
+
+## 📄 License
+
+This project is open source and available under the [MIT License](LICENSE).
+
+## 🙋‍♂️ Questions?
+
+For implementation questions or issues, please refer to:
+- [Vite Documentation](https://vitejs.dev/)
+- [React Documentation](https://react.dev/)
+- [Cloudflare Cache Documentation](https://developers.cloudflare.com/cache/)

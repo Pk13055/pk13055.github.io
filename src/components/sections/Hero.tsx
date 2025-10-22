@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import { AvatarImage } from "@/components/ui/ResponsiveImage";
 import { IconMail } from "@tabler/icons-react";
 import { motion } from "framer-motion";
 
@@ -36,12 +37,11 @@ export function Hero({ onContactClick }: HeroProps) {
           {/* Avatar Image */}
           <motion.div variants={fadeInUp} className="flex-shrink-0">
             <div className="p-[1px] bg-gradient-to-r from-purple-400 via-violet-500 to-purple-600 rounded-full hover:shadow-2xl transition-all">
-              <img
+              <AvatarImage
                 src="/avatar.png"
                 alt="Pratik K - AI and Machine Learning Engineer specializing in Algorithmic Trading and Computer Vision"
-                className="w-48 h-48 sm:w-56 sm:h-56 lg:w-64 lg:h-64 rounded-full object-cover shadow-xl"
-                width="256"
-                height="256"
+                className="w-48 h-48 sm:w-56 sm:h-56 lg:w-64 lg:h-64 shadow-xl"
+                priority={true}
               />
             </div>
           </motion.div>
