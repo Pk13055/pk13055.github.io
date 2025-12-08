@@ -8,6 +8,7 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "prebuild": "npm run blog:index",
+    "postbuild": "node scripts/create-404.js",
     "build:analyze": "npm run build && open dist/stats.html",
     "preview": "vite preview",
     "blog:index": "node scripts/generate-blog-index.js",
