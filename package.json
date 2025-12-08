@@ -4,10 +4,13 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
+    "predev": "npm run blog:index",
     "dev": "vite",
     "build": "tsc && vite build",
+    "prebuild": "npm run blog:index",
     "build:analyze": "npm run build && open dist/stats.html",
     "preview": "vite preview",
+    "blog:index": "node scripts/generate-blog-index.js",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist",
     "deploy:full": "npm run deploy && npm run cf:purge",
@@ -25,6 +28,9 @@
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-helmet-async": "^2.0.5",
+    "react-markdown": "^10.1.0",
+    "react-router-dom": "^7.10.1",
+    "remark-gfm": "^4.0.1",
     "tailwind-merge": "^3.3.1"
   },
   "devDependencies": {

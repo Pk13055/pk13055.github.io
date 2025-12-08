@@ -8,6 +8,7 @@ import {
   IconMail,
 } from "@tabler/icons-react";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 const socialLinks = [
   {
@@ -61,20 +62,33 @@ export function Contact() {
             </p>
           </AnimatedItem>
           <AnimatedItem>
-            <Button
-              size="lg"
-              variant="outline"
-              className="font-mono mb-12 border-2 border-gradient-to-r from-rose-400 to-pink-500 bg-gradient-to-r from-rose-400/10 to-pink-500/10 hover:from-rose-400/20 hover:to-pink-500/20"
-              asChild
-            >
-              <a
-                href="mailto:pratik.k98@yahoo.com"
-                className="text-rose-400 hover:text-rose-300"
+            <div className="flex flex-wrap justify-center gap-4 mb-12">
+              <Button
+                size="lg"
+                variant="outline"
+                className="font-mono border-2 border-gradient-to-r from-rose-400 to-pink-500 bg-gradient-to-r from-rose-400/10 to-pink-500/10 hover:from-rose-400/20 hover:to-pink-500/20"
+                asChild
               >
-                <IconMail className="mr-2 h-4 w-4" />
-                Say Hello
-              </a>
-            </Button>
+                <a
+                  href="mailto:pratik.k98@yahoo.com"
+                  className="text-rose-400 hover:text-rose-300"
+                >
+                  <IconMail className="mr-2 h-4 w-4" />
+                  Say Hello
+                </a>
+              </Button>
+              <Button
+                size="lg"
+                variant="secondary"
+                className="font-mono border-2 border-rose-500/60 bg-card/60 hover:bg-card/80"
+                asChild
+              >
+                <Link to="/blog" className="flex items-center text-rose-100">
+                  <IconExternalLink className="mr-2 h-4 w-4" />
+                  Blog
+                </Link>
+              </Button>
+            </div>
           </AnimatedItem>
           <AnimatedItem>
             <div className="flex justify-center gap-6">
