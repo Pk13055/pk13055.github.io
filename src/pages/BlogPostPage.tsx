@@ -199,7 +199,7 @@ export function BlogPostPage() {
           </div>
         </div>
 
-        <div className="space-y-6 leading-relaxed text-foreground text-justify">
+        <div className="space-y-6 leading-relaxed text-foreground text-justify no-select">
           {loading && <p className="text-muted-foreground">Loading post...</p>}
           {error && <p className="text-destructive">{error}</p>}
           {!loading && !error && (
