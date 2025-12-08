@@ -4,13 +4,12 @@ import {
   IconMoon,
   IconSun,
 } from "@tabler/icons-react";
-import { useEffect, useMemo, useState } from "react";
+import { ComponentPropsWithoutRef, useEffect, useState } from "react";
 import ReactMarkdown, { Components } from "react-markdown";
 import { Link, useParams } from "react-router-dom";
 import remarkGfm from "remark-gfm";
 
 import { Button } from "@/components/ui/button";
-import { parseBlogSlug } from "@/lib/blog";
 
 const resolveMediaSrc = (src?: string) => {
   if (!src) return "";
@@ -19,6 +18,10 @@ const resolveMediaSrc = (src?: string) => {
     src.startsWith("https://") ||
     src.startsWith("/")
   ) {
+    // If authors paste the public folder path, strip it so the asset serves from /blog/media
+    if (src.startsWith("/public/")) {
+      return src.replace("/public", "");
+    }
     return src;
   }
 
@@ -51,10 +54,10 @@ const markdownComponents: Components = {
       {...props}
     />
   ),
-  ul: ({ node, ordered, ...props }) => (
+  ul: ({ node, ...props }) => (
     <ul className="list-disc pl-6 space-y-2 mb-4" {...props} />
   ),
-  ol: ({ node, ordered, ...props }) => (
+  ol: ({ node, ...props }) => (
     <ol className="list-decimal pl-6 space-y-2 mb-4" {...props} />
   ),
   blockquote: ({ node, ...props }) => (
@@ -63,7 +66,12 @@ const markdownComponents: Components = {
       {...props}
     />
   ),
-  code: ({ inline, className, children, ...props }) => {
+  code: ({
+    inline,
+    className,
+    children,
+    ...props
+  }: ComponentPropsWithoutRef<"code"> & { inline?: boolean }) => {
     if (inline) {
       return (
         <code
@@ -101,8 +109,6 @@ export function BlogPostPage() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [theme, setTheme] = useState<"dark" | "light">("dark");
-
-  const parsed = useMemo(() => (slug ? parseBlogSlug(slug) : null), [slug]);
 
   useEffect(() => {
     if (!slug) return;
