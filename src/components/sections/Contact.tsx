@@ -29,7 +29,7 @@ const socialLinks = [
   {
     icon: IconMail,
     label: "Email",
-    href: "mailto:pratik.k98@yahoo.com",
+    href: "mailto:hi@pk13055.com",
   },
   {
     icon: IconExternalLink,
@@ -70,7 +70,7 @@ export function Contact() {
                 asChild
               >
                 <a
-                  href="mailto:pratik.k98@yahoo.com"
+                  href="mailto:hi@pk13055.com"
                   className="text-rose-400 hover:text-rose-300"
                 >
                   <IconMail className="mr-2 h-4 w-4" />
