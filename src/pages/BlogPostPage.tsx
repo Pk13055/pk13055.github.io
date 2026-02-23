@@ -8,8 +8,10 @@ import { ComponentPropsWithoutRef, useEffect, useState } from "react";
 import ReactMarkdown, { Components } from "react-markdown";
 import { Link, useParams } from "react-router-dom";
 import remarkGfm from "remark-gfm";
+import "prismjs/themes/prism-tomorrow.css";
 
 import { Button } from "@/components/ui/button";
+import { highlight, normalizeLanguage } from "@/lib/codeHighlight";
 
 const resolveMediaSrc = (src?: string) => {
   if (!src) return "";
@@ -67,12 +69,14 @@ const markdownComponents: Components = {
     />
   ),
   code: ({
-    inline,
     className,
     children,
     ...props
-  }: ComponentPropsWithoutRef<"code"> & { inline?: boolean }) => {
-    if (inline) {
+  }: ComponentPropsWithoutRef<"code">) => {
+    const isBlock = Boolean(
+      className && /language-\S+/.test(className)
+    );
+    if (!isBlock) {
       return (
         <code
           className="rounded bg-muted px-1.5 py-0.5 text-sm text-foreground"
@@ -80,6 +84,27 @@ const markdownComponents: Components = {
         >
           {children}
         </code>
+      );
+    }
+
+    const language = normalizeLanguage(className);
+    const codeString =
+      typeof children === "string"
+        ? children
+        : Array.isArray(children)
+          ? children.map((c) => (typeof c === "string" ? c : "")).join("")
+          : String(children ?? "");
+
+    if (language) {
+      const highlighted = highlight(codeString, language);
+      return (
+        <pre className="overflow-x-auto rounded-lg bg-muted p-4 text-sm">
+          <code
+            className={className}
+            dangerouslySetInnerHTML={{ __html: highlighted }}
+            {...props}
+          />
+        </pre>
       );
     }
 
