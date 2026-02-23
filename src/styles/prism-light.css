@@ -1,0 +1,111 @@
+/**
+ * Prism light theme overrides for blog post code blocks.
+ * Scoped under .blog-light so dark (tomorrow) theme remains default.
+ * Based on prism.js default theme.
+ */
+
+/* Our structure: .blog-light ... pre (no language class) > code[class*="language-"] */
+.blog-light pre code[class*="language-"] {
+  color: #374151;
+  text-shadow: none;
+}
+
+.blog-light pre::selection,
+.blog-light pre ::selection {
+  text-shadow: none;
+  background: #b3d4fc;
+}
+
+.blog-light pre {
+  background: #f3f4f6;
+}
+
+.blog-light pre code[class*="language-"] {
+  background: transparent;
+}
+
+.blog-light .token.comment,
+.blog-light .token.prolog,
+.blog-light .token.doctype,
+.blog-light .token.cdata {
+  color: #6b7280;
+}
+
+.blog-light .token.punctuation {
+  color: #6b7280;
+}
+
+.blog-light .token.namespace {
+  opacity: 0.7;
+}
+
+.blog-light .token.property,
+.blog-light .token.tag,
+.blog-light .token.boolean,
+.blog-light .token.number,
+.blog-light .token.constant,
+.blog-light .token.symbol,
+.blog-light .token.deleted {
+  color: #905;
+}
+
+.blog-light .token.selector,
+.blog-light .token.attr-name,
+.blog-light .token.string,
+.blog-light .token.char,
+.blog-light .token.builtin,
+.blog-light .token.inserted {
+  color: #059669;
+}
+
+.blog-light .token.operator,
+.blog-light .token.entity,
+.blog-light .token.url,
+.blog-light .language-css .token.string,
+.blog-light .style .token.string {
+  color: #9a6e3a;
+  background: hsla(0, 0%, 100%, 0.5);
+}
+
+.blog-light .token.atrule,
+.blog-light .token.attr-value,
+.blog-light .token.keyword {
+  color: #0284c7;
+}
+
+.blog-light .token.function,
+.blog-light .token.class-name {
+  color: #dc2626;
+}
+
+.blog-light .token.regex,
+.blog-light .token.important,
+.blog-light .token.variable {
+  color: #ca8a04;
+}
+
+.blog-light .token.important,
+.blog-light .token.bold {
+  font-weight: bold;
+}
+
+.blog-light .token.italic {
+  font-style: italic;
+}
+
+.blog-light .token.entity {
+  cursor: help;
+}
+
+/* Prism also outputs .block-comment in some languages */
+.blog-light .token.block-comment {
+  color: #6b7280;
+}
+
+.blog-light .token.function-name {
+  color: #0284c7;
+}
+
+.blog-light .token.attr-value .token.punctuation {
+  color: #059669;
+}

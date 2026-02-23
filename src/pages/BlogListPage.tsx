@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { IconHome2, IconNews } from "@tabler/icons-react";
+import { IconHome2, IconMoon, IconNews, IconSun } from "@tabler/icons-react";
 
 import {
   Card,
@@ -10,12 +10,13 @@ import {
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { BlogIndexEntry, formatBlogDate } from "@/lib/blog";
+import { useBlogTheme } from "@/lib/useBlogTheme";
 
 export function BlogListPage() {
   const [posts, setPosts] = useState<BlogIndexEntry[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const [theme, setTheme] = useState<"dark" | "light">("dark");
+  const [theme, setTheme] = useBlogTheme();
 
   useEffect(() => {
     let isMounted = true;
@@ -77,7 +78,9 @@ export function BlogListPage() {
           </div>
           <div className="flex items-center gap-3">
             <div className="flex items-center gap-2">
-              <span className="text-sm text-muted-foreground">Light</span>
+              <span className="text-sm text-muted-foreground">
+                <IconMoon className="h-4 w-4" />
+              </span>
               <button
                 type="button"
                 role="switch"
@@ -96,7 +99,9 @@ export function BlogListPage() {
                   }`}
                 />
               </button>
-              <span className="text-sm text-muted-foreground">Dark</span>
+              <span className="text-sm text-muted-foreground">
+                <IconSun className="h-4 w-4" />
+              </span>
             </div>
             <Button variant="outline" asChild>
               <Link to="/">

@@ -9,9 +9,11 @@ import ReactMarkdown, { Components } from "react-markdown";
 import { Link, useParams } from "react-router-dom";
 import remarkGfm from "remark-gfm";
 import "prismjs/themes/prism-tomorrow.css";
+import "@/styles/prism-light.css";
 
 import { Button } from "@/components/ui/button";
 import { highlight, normalizeLanguage } from "@/lib/codeHighlight";
+import { useBlogTheme } from "@/lib/useBlogTheme";
 
 const resolveMediaSrc = (src?: string) => {
   if (!src) return "";
@@ -133,7 +135,7 @@ export function BlogPostPage() {
   const [content, setContent] = useState("");
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const [theme, setTheme] = useState<"dark" | "light">("dark");
+  const [theme, setTheme] = useBlogTheme();
 
   useEffect(() => {
     if (!slug) return;
@@ -181,7 +183,11 @@ export function BlogPostPage() {
       }`}
     >
       <div className="max-w-6xl mx-auto space-y-10">
-        <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+        <div
+          className={`sticky top-0 z-10 -mx-4 flex flex-col gap-3 border-b border-transparent px-4 py-4 backdrop-blur-sm sm:-mx-8 sm:px-8 ${
+            isLight ? "bg-white/95 border-slate-200" : "bg-background/95 border-rose-900/20"
+          } sm:flex-row sm:items-center sm:justify-between`}
+        >
           <div className="flex items-center gap-2">
             <span className="text-sm text-muted-foreground">
               <IconMoon className="h-4 w-4" />
