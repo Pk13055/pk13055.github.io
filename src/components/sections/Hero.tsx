@@ -58,19 +58,18 @@ export function Hero({ onContactClick }: HeroProps) {
               variants={fadeInUp}
               className="text-3xl sm:text-4xl md:text-5xl font-bold bg-gradient-to-r from-purple-300 to-violet-400 bg-clip-text text-transparent mb-6 animate-gradient"
             >
-              AI & Machine Learning Engineer | Algorithmic Trading | Computer
-              Vision
+              AI & Machine Learning Engineer | Full-Stack | Algorithmic Trading
             </motion.h2>
             <motion.p
               variants={fadeInUp}
               className="text-muted-foreground max-w-2xl text-base sm:text-lg leading-relaxed mb-8"
             >
-              AI/ML specialist with 5+ years of experience building intelligent,
-              scalable systems using PyTorch, TensorFlow, and deep learning.
-              Expert in algorithmic trading bots, computer vision systems, and
-              end-to-end machine learning pipelines. I architect AI-first
-              solutions that deliver measurable business value across finance,
-              healthcare, and autonomous systems.
+              AI/ML specialist with 5+ years building intelligent, scalable
+              systems. Recent work: healthcare document AI (Vertex AI), competitive
+              simulated trading platforms, and product apps (React, FastAPI).
+              Expert in algorithmic trading, computer vision, and end-to-end
+              pipelines that deliver measurable value across finance, healthcare,
+              and autonomous systems.
             </motion.p>
             <motion.div variants={fadeInUp} className="flex flex-wrap gap-4">
               <Button

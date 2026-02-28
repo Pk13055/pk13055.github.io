@@ -21,19 +21,19 @@ const highlights = [
     icon: IconRocket,
     title: "AI & Innovation",
     content:
-      "Spearheaded the development of AI-first projects, including end-to-end algorithmic trading bots, computer vision systems for quality control, and machine learning models for supplemental signal generation in financial markets.",
+      "Spearheaded AI-first projects: healthcare document pipelines (Vertex AI classification and structured extraction), algorithmic trading bots and simulated trading platforms, computer vision for quality control, and ML models for trading signals and financial markets.",
   },
   {
     icon: IconBriefcase,
     title: "Product Leadership",
     content:
-      "Co-founded Synalytica LLC, building AI-driven products in healthcare, finance, and content creation. Key products include FolioWiz (portfolio optimization) and Starter Up (content creation/curation).",
+      "Co-founded Synalytica LLC; built TraderRoyale (competitive forex simulation) and PostAI (social media scheduling) for Trade Wise Capital. Delivered FolioWiz, Starter Up, and healthcare/education products from concept to production.",
   },
   {
     icon: IconCode,
     title: "Technical Expertise",
     content:
-      "Extensive experience in the entire ML lifecycle, from architectural design and algorithmic development (XGBoost, CNNs) to pipeline conversion (Python to C++), containerization (Docker), and optimization for edge devices (Nvidia Jetson TX2).",
+      "Full-stack and ML lifecycle: React/TypeScript, FastAPI, PostgreSQL, MongoDB, Redis, Docker Compose. Document AI and extraction pipelines; real-time market data and order execution; OAuth and crypto payment flows; edge deployment (Nvidia Jetson).",
   },
   {
     icon: IconBulb,
@@ -45,7 +45,7 @@ const highlights = [
     icon: IconUsers,
     title: "Full-Stack Proficiency",
     content:
-      "Versatile skill set spanning machine learning, backend development (Python, microservices), web technologies (React, Vue.js), and DevOps (GCP, AWS, Azure), enabling complete end-to-end solutions.",
+      "Versatile skill set: React (Vite), FastAPI, PostgreSQL, MongoDB, Redis, TimescaleDB; Docker Compose and Nginx; GCP (Vertex AI, GCS). Delivers complete end-to-end products from API and data pipelines to responsive UIs and DevOps.",
   },
   {
     icon: IconSchool,

@@ -19,7 +19,7 @@ export const SITE_CONFIG = {
   siteName: "Pratik K - AI & Machine Learning Engineer",
   siteTitle: "Pratik K | AI & Machine Learning Engineer | Portfolio",
   siteDescription:
-    "AI/ML Engineer specializing in algorithmic trading, computer vision, and deep learning. 5+ years building intelligent systems. Open for opportunities.",
+    "AI/ML Engineer specializing in algorithmic trading, computer vision, document AI, and full-stack systems. 5+ years building intelligent systems. Healthcare AI, trading platforms, React, FastAPI. Open for opportunities.",
   author: "Pratik K",
   email: "pratik.k98@yahoo.com",
   github: "https://github.com/pk13055",
@@ -30,13 +30,17 @@ export const SITE_CONFIG = {
     "Machine Learning",
     "Algorithmic Trading",
     "Computer Vision",
+    "Document AI",
+    "Healthcare AI",
     "Deep Learning",
     "PyTorch",
     "TensorFlow",
+    "Vertex AI",
+    "FastAPI",
+    "React",
     "AI Consultant",
-    "ML Research",
+    "Full-Stack",
     "Python Developer",
-    "AI Product Architect",
   ],
 };
 
@@ -54,7 +58,7 @@ export function generatePersonSchema() {
     email: SITE_CONFIG.email,
     jobTitle: "AI & Machine Learning Engineer",
     description:
-      "AI/ML specialist with expertise in algorithmic trading, computer vision, and deep learning systems",
+      "AI/ML specialist with expertise in algorithmic trading, computer vision, document AI (Vertex AI), full-stack development (React, FastAPI), and deep learning systems",
     worksFor: [
       {
         "@type": "Organization",
@@ -80,10 +84,13 @@ export function generatePersonSchema() {
       "Machine Learning",
       "Deep Learning",
       "Computer Vision",
-      "Natural Language Processing",
+      "Document AI",
       "Algorithmic Trading",
       "PyTorch",
       "TensorFlow",
+      "Vertex AI",
+      "React",
+      "FastAPI",
       "Python",
       "C++",
       "Docker",

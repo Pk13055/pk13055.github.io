@@ -30,6 +30,7 @@ const skillGroups = [
       "PyTorch",
       "OpenCV",
       "Tensorflow 1.x",
+      "Vertex AI",
       "PyTorch C++",
       "Scikit-learn",
       "XGBoost",
@@ -59,8 +60,9 @@ const skillGroups = [
     icon: IconWorld,
     skills: [
       "FastAPI",
-      "Vue.js",
       "React",
+      "Vite",
+      "Vue.js",
       "Django",
       "Flask",
       "Laravel",
@@ -73,13 +75,23 @@ const skillGroups = [
   {
     category: "Databases",
     icon: IconDatabase,
-    skills: ["MongoDB", "MySQL", "PostgreSQL", "Neo4j", "XQuery"],
+    skills: [
+      "PostgreSQL",
+      "MongoDB",
+      "Redis",
+      "TimescaleDB",
+      "MySQL",
+      "Neo4j",
+      "XQuery",
+    ],
   },
   {
     category: "DevOps & Cloud",
     icon: IconCloud,
     skills: [
       "Docker",
+      "Docker Compose",
+      "Nginx",
       "Google Cloud Platform (GCP)",
       "Amazon Web Services (AWS ECS)",
       "Azure Cloud",

@@ -29,17 +29,18 @@ export function About() {
                     <span className="font-semibold bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
                       PyTorch, TensorFlow, and deep learning frameworks
                     </span>{" "}
-                    across diverse sectors including finance, healthcare,
-                    autonomous systems, and manufacturing. Proven track record
-                    building high-frequency algorithmic trading platforms,
-                    computer vision systems for quality control, and NLP models
-                    for code-mixed datasets. Expert in the full ML lifecycle:
-                    from research and model development to production
-                    deployment, containerization (Docker), and optimization for
-                    edge devices (Nvidia Jetson). Co-founded Synalytica LLC,
-                    leading development of AI-driven products in healthcare and
-                    finance. Open to full-time opportunities, consulting
-                    engagements, and research collaborations.
+                    across finance, healthcare, autonomous systems, and
+                    manufacturing. Recent work includes healthcare document AI
+                    (Vertex AI pipelines, lab-report extraction), competitive
+                    simulated trading platforms (real-time market data, order
+                    execution, crypto payouts), and AI-oriented product apps
+                    (social scheduling, OAuth, full-stack). Proven track record
+                    in high-frequency trading systems, computer vision for
+                    quality control, and the full ML lifecycle from research to
+                    production (Docker, edge optimization). Co-founded Synalytica
+                    LLC; built products for Trade Wise Capital (TraderRoyale,
+                    PostAI). Open to full-time opportunities, consulting, and
+                    research collaborations.
                   </p>
                 </CardContent>
               </Card>

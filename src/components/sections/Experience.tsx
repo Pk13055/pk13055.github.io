@@ -11,6 +11,43 @@ import { IconBriefcase } from "@tabler/icons-react";
 
 const experiences = [
   {
+    title: "Full-Stack / AI Engineer",
+    company: "MediBank",
+    location: "Remote",
+    period: "Jan 2026 - Feb 2026",
+    achievements: [
+      "Built healthcare document portal (React + FastAPI) with doctor/patient auth, patient search, and MID-based report access",
+      "Implemented AI document pipeline (Vertex AI) that classifies uploads and runs structured extraction for lab reports; designed status flow and versioning in MongoDB",
+      "Delivered report viewing and lab insights UI: unified dialog, PDF/image streaming, and dedicated lab-report view with metadata, panels, and abnormal value highlighting",
+      "Set up Docker Compose stack (Nginx, React, FastAPI, PostgreSQL, MongoDB) with encrypted artifact storage and streaming",
+    ],
+  },
+  {
+    title: "Full-Stack Engineer",
+    company: "TraderRoyale (Trade Wise Capital LLC)",
+    companyUrl: "https://royale.tradewise.tech",
+    location: "Remote",
+    period: "Jul 2025 - Feb 2026",
+    achievements: [
+      "Built real-time competitive simulated forex trading platform from scratch: backend API, market data pipeline, order execution engine, competitions, PvP, and React frontend",
+      "Implemented real-time market data pipeline with Polygon.io, Redis Streams, TimescaleDB, and WebSocket broadcast; added leader election for multi-worker deployment",
+      "Designed order execution engine: tick-driven market/limit/stop orders, multi-level SL/TP with OCO, partial fills, and real-time event broadcast",
+      "Delivered competition and PvP systems with crypto payments (USDT ERC-20), MetaMask checkout, tx verification, and claim/payout flows",
+    ],
+  },
+  {
+    title: "Full-Stack Developer",
+    company: "PostAI (Trade Wise Capital LLC)",
+    location: "Remote",
+    period: "Aug 2025 - Nov 2025",
+    achievements: [
+      "Built PostAI, AI-oriented social media management product enabling scheduled publishing to Facebook and Instagram via OAuth, media uploads, and asset library",
+      "Implemented Facebook and Instagram OAuth and Meta Graph API integration for account linking, token refresh, and multi-account support with mobile-friendly flows",
+      "Delivered resumable media uploads, URL-based media for Instagram, and platform-specific validation; refactored post scheduling APIs and multi-post creation from a single dialog",
+      "Shipped full-stack app with React (Vite) and FastAPI; PostgreSQL and Redis with RQ for scheduled jobs; landing page, ToS, Privacy Policy, and mobile-responsive UX",
+    ],
+  },
+  {
     title: "AI Innovation Specialist",
     company: "Trilogy (ESW Capital Group)",
     location: "TX, USA",
