@@ -7,50 +7,8 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
+import { researchExperiences } from "@/data/resume";
 import { IconMicroscope } from "@tabler/icons-react";
-
-const researchExperiences = [
-  {
-    title: "Research Scholar",
-    organization: "Cognitive Research Lab, IIIT-H",
-    location: "India",
-    period: "Dec 2018 - May 2021",
-    description:
-      "Developed theoretical framework for modeling real-world social networks using graph neural networks and network science. Research focused on mental illness detection through machine learning analysis of music consumption patterns and social interaction trends. Published findings on correlation between social media behavior and mental health indicators, achieving 82% classification accuracy using ensemble methods.",
-  },
-  {
-    title: "Deep Learning Intern",
-    organization: "Siemens, Perception Lab",
-    location: "Bangalore, India",
-    period: "May 2019 - Jun 2019",
-    description:
-      "Contributed to 'ITF' intelligent traffic management system deployment. Optimized performance-critical computer vision pipeline by converting Python implementation to C++ using OpenCV and TensorRT, achieving 3x speedup. Containerized application using Docker for deployment on Nvidia Jetson TX2 edge devices, enabling real-time traffic analysis at 30 FPS with <100ms latency.",
-  },
-  {
-    title: "Deep Learning Intern",
-    organization: "Valeo Dar",
-    location: "Germany",
-    period: "Jul 2018 - Jan 2019",
-    description:
-      "Advanced computer vision research for autonomous driving systems. Developed fisheye stereo correspondence algorithms and direct depth estimation models using CNNs to replace expensive LIDAR sensors. Engineered production-grade C++ deep learning pipeline achieving 95% depth estimation accuracy at 20 FPS, reducing sensor costs by $10K per vehicle while maintaining SLAM module performance.",
-  },
-  {
-    title: "Vision Researcher",
-    organization: "Computer Vision Lab, IIIT-H",
-    location: "India",
-    period: "May 2018 - Dec 2018",
-    description:
-      "Conducted research on mobile camera image quality assessment under Dr. Vineet Gandhi. Developed novel algorithms for computational photography: bokeh detection using semantic segmentation and depth estimation, plus quantitative bokeh quality metrics. Implemented models using PyTorch achieving 89% accuracy on smartphone image dataset of 10K+ photos.",
-  },
-  {
-    title: "Machine Learning Engineer",
-    organization: "Variance AI",
-    location: "",
-    period: "Sep 2017 - Mar 2018",
-    description:
-      "Architected core ML framework for AI-powered fitness training platform. Implemented real-time 3D pose estimation and human pose tracking using Kinect depth sensors and point cloud processing. Developed user recognition system and automated exercise correction feedback using sequence-to-sequence models, achieving 91% accuracy in pose classification across 50+ exercise types.",
-  },
-];
 
 export function Research() {
   return (

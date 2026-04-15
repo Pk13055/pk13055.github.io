@@ -7,46 +7,8 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
+import { communityInvolvement, otherExperiences as experiences } from "@/data/resume";
 import { IconUsers } from "@tabler/icons-react";
-
-const experiences = [
-  {
-    title: "Teaching Assistant",
-    organization: "IIIT Hyderabad",
-    period: "Aug 2018 - Nov 2018",
-    description:
-      "Served as TA for Structured Systems Analysis Design (SSAD) course. Guided three student teams in managing client requirements and software engineering best practices.",
-  },
-  {
-    title: "Technical Project Manager",
-    organization: "MBR Informatics",
-    period: "Jan 2018 - Jul 2018",
-    description:
-      "Managed team of 10 developers, overseeing project timelines, CI integration, and workflow design. Led development of Django-based health management platform.",
-  },
-  {
-    title: "Web Administrator",
-    organization: "IIIT Hyderabad",
-    period: "Oct 2017 - Jan 2018",
-    description:
-      "Managed entire college web framework and led design and implementation of new image-sharing portal for student body.",
-  },
-  {
-    title: "Web Developer",
-    organization: "Mayabazaar",
-    period: "Aug 2016 - Oct 2016",
-    description:
-      "Developed user interface for movie industry-based e-commerce portal. Integrated secure payment gateway (Stripe) for online transactions.",
-  },
-];
-
-const communityInvolvement = [
-  "OSDG Volunteer: Led rebuild of college applications (courier portal, recommendation system) using modern technologies (2020)",
-  "BeeTech Co-founder: Started Medium publication to provide consolidated free information about tech",
-  "Teacher, Ashakiran (2017-2018): Taught English, Physics, and Science to underprivileged children",
-  "Listener, 7 Cups (2016-2017): Provided emotional support through active listening sessions",
-  "IIIT-H MUN: Member of the Organizing Committee (2016-2017)",
-];
 
 export function OtherExperience() {
   return (

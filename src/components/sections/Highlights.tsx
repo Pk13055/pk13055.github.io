@@ -6,6 +6,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
+import { highlights as rawHighlights } from "@/data/resume";
 import {
   IconBriefcase,
   IconBulb,
@@ -16,44 +17,19 @@ import {
   IconUsers,
 } from "@tabler/icons-react";
 
-const highlights = [
-  {
-    icon: IconRocket,
-    title: "AI & Innovation",
-    content:
-      "Spearheaded AI-first projects: healthcare document pipelines (Vertex AI classification and structured extraction), algorithmic trading bots and simulated trading platforms, computer vision for quality control, and ML models for trading signals and financial markets.",
-  },
-  {
-    icon: IconBriefcase,
-    title: "Product Leadership",
-    content:
-      "Co-founded Synalytica LLC; built TraderRoyale (competitive forex simulation) and PostAI (social media scheduling) for Trade Wise Capital. Delivered FolioWiz, Starter Up, and healthcare/education products from concept to production.",
-  },
-  {
-    icon: IconCode,
-    title: "Technical Expertise",
-    content:
-      "Full-stack and ML lifecycle: React/TypeScript, FastAPI, PostgreSQL, MongoDB, Redis, Docker Compose. Document AI and extraction pipelines; real-time market data and order execution; OAuth and crypto payment flows; edge deployment (Nvidia Jetson).",
-  },
-  {
-    icon: IconBulb,
-    title: "Research & Development",
-    content:
-      "Contributed to cutting-edge research in mental illness detection using social network analysis, mobile camera image quality assessment (bokeh detection), and fisheye stereo correspondence for autonomous driving systems.",
-  },
-  {
-    icon: IconUsers,
-    title: "Full-Stack Proficiency",
-    content:
-      "Versatile skill set: React (Vite), FastAPI, PostgreSQL, MongoDB, Redis, TimescaleDB; Docker Compose and Nginx; GCP (Vertex AI, GCS). Delivers complete end-to-end products from API and data pipelines to responsive UIs and DevOps.",
-  },
-  {
-    icon: IconSchool,
-    title: "Philosophy",
-    content:
-      "Strong believer in a hands-on, collaborative approach to problem-solving, focused on creating scalable and stable platforms through modern software engineering practices like airflow-based pipelining and microservice architecture.",
-  },
-];
+const titleIconMap: Record<string, React.ElementType> = {
+  "AI & Innovation": IconRocket,
+  "Product Leadership": IconBriefcase,
+  "Technical Expertise": IconCode,
+  "Research & Development": IconBulb,
+  "Full-Stack Proficiency": IconUsers,
+  Philosophy: IconSchool,
+};
+
+const highlights = rawHighlights.map((h) => ({
+  ...h,
+  icon: titleIconMap[h.title] ?? IconSparkles,
+}));
 
 export function Highlights() {
   return (

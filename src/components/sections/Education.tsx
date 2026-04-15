@@ -8,20 +8,8 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
+import { education } from "@/data/resume";
 import { IconSchool } from "@tabler/icons-react";
-
-const courses = [
-  "Machine Learning I*",
-  "Artificial Intelligence",
-  "Game Theory*",
-  "Complexity and Advanced Algorithms*",
-  "Algorithms",
-  "Data Structures",
-  "Structured Systems Design",
-  "Introduction to Databases",
-  "Operating Systems",
-  "Computer Organisation",
-];
 
 export function Education() {
   return (
@@ -42,18 +30,15 @@ export function Education() {
             <div className="p-[1px] bg-gradient-to-r from-indigo-400 to-purple-500 rounded-lg hover:shadow-lg transition-all">
               <Card className="border-l-4 border-l-primary">
                 <CardHeader>
-                  <CardTitle className="text-2xl">
-                    Bachelor of Technology
-                  </CardTitle>
+                  <CardTitle className="text-2xl">{education.degree}</CardTitle>
                   <CardDescription className="text-base font-semibold text-foreground">
-                    Computer Science and Engineering
+                    {education.field}
                   </CardDescription>
                   <CardDescription className="text-sm break-words">
-                    International Institute of Information Technology,
-                    Hyderabad, India
+                    {education.institution}, {education.location}
                   </CardDescription>
                   <CardDescription className="text-sm font-mono">
-                    May 2016 - May 2021
+                    {education.period}
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
@@ -61,7 +46,7 @@ export function Education() {
                     <strong>Selected Coursework:</strong>
                   </p>
                   <div className="flex flex-wrap gap-2">
-                    {courses.map((course) => (
+                    {education.courses.map((course) => (
                       <Badge
                         key={course}
                         variant="secondary"
@@ -72,7 +57,7 @@ export function Education() {
                     ))}
                   </div>
                   <p className="text-xs text-muted-foreground mt-4 italic">
-                    * Denotes advanced or honors-level coursework
+                    {education.note}
                   </p>
                 </CardContent>
               </Card>

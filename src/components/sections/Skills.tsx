@@ -2,6 +2,7 @@ import { AnimatedItem, AnimatedSection } from "@/components/ui/AnimatedSection";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
+import { skillGroups as rawSkillGroups } from "@/data/resume";
 import {
   IconBrain,
   IconCloud,
@@ -11,94 +12,19 @@ import {
   IconWorld,
 } from "@tabler/icons-react";
 
-const skillGroups = [
-  {
-    category: "LLM",
-    icon: IconRobot,
-    skills: [
-      "OpenAI (Text + Realtime (audio) + Agentic)",
-      "Gemini (Realtime (audio + video) + text + agentic)",
-      "Browser Use",
-      "LangChain",
-      "CrewAI",
-    ],
-  },
-  {
-    category: "Machine Learning",
-    icon: IconBrain,
-    skills: [
-      "PyTorch",
-      "OpenCV",
-      "Tensorflow 1.x",
-      "Vertex AI",
-      "PyTorch C++",
-      "Scikit-learn",
-      "XGBoost",
-      "Keras",
-    ],
-  },
-  {
-    category: "Programming Languages",
-    icon: IconCode,
-    skills: [
-      "Python",
-      "Pinescript",
-      "MQL4/5",
-      "C++",
-      "C",
-      "Java",
-      "ECMAScript",
-      "TypeScript",
-      "Shell scripting",
-      "Matlab",
-      "PHP",
-      "Assembly (MIPS)",
-    ],
-  },
-  {
-    category: "Web Development",
-    icon: IconWorld,
-    skills: [
-      "FastAPI",
-      "React",
-      "Vite",
-      "Vue.js",
-      "Django",
-      "Flask",
-      "Laravel",
-      "Node.js",
-      "Express.js",
-      "Javascript",
-      "HTML5",
-    ],
-  },
-  {
-    category: "Databases",
-    icon: IconDatabase,
-    skills: [
-      "PostgreSQL",
-      "MongoDB",
-      "Redis",
-      "TimescaleDB",
-      "MySQL",
-      "Neo4j",
-      "XQuery",
-    ],
-  },
-  {
-    category: "DevOps & Cloud",
-    icon: IconCloud,
-    skills: [
-      "Docker",
-      "Docker Compose",
-      "Nginx",
-      "Google Cloud Platform (GCP)",
-      "Amazon Web Services (AWS ECS)",
-      "Azure Cloud",
-      "CI/CD",
-    ],
-  },
-];
+const categoryIconMap: Record<string, React.ElementType> = {
+  LLM: IconRobot,
+  "Machine Learning": IconBrain,
+  "Programming Languages": IconCode,
+  "Web Development": IconWorld,
+  Databases: IconDatabase,
+  "DevOps & Cloud": IconCloud,
+};
+
+const skillGroups = rawSkillGroups.map((g) => ({
+  ...g,
+  icon: categoryIconMap[g.category] ?? IconCode,
+}));
 
 export function Skills() {
   return (
