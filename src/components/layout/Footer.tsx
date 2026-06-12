@@ -10,7 +10,7 @@ export function Footer() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-8 text-center">
         <p className="text-muted-foreground text-sm font-mono">
-          &copy; 2025{" "}
+          &copy; {new Date().getFullYear()}{" "}
           <a
             href="https://github.com/pk13055"
             target="_blank"

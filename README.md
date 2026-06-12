@@ -26,6 +26,8 @@ npm run deploy
 npm run deploy:full
 ```
 
+> **Note**: `npm run build` (via `prebuild`) also generates the resume PDF, which requires a LaTeX engine — see [Resume PDF Pipeline](#-resume-pdf-pipeline).
+
 ## 📦 Tech Stack
 
 - **Framework**: React 18 + TypeScript
@@ -36,6 +38,32 @@ npm run deploy:full
 - **Icons**: Tabler Icons
 - **Deployment**: GitHub Pages + Cloudflare CDN
 - **SEO**: React Helmet Async
+
+## 📄 Resume PDF Pipeline
+
+The site serves a downloadable resume at [`/resume.pdf`](https://pk13055.com/resume.pdf) (also `wget`/`curl` friendly), generated in two steps from the single source of truth `src/data/resume.js`:
+
+1. **Generate LaTeX** — `scripts/generate-resume-tex.js` parses the resume data and coalesces it into a formal LaTeX document at `public/resume.tex` (also served at `/resume.tex`).
+2. **Compile PDF** — `scripts/compile-resume-pdf.js` compiles it into `public/resume.pdf` using [Tectonic](https://tectonic-typesetting.github.io/) (falls back to `latexmk`, `pdflatex`, or Docker if Tectonic isn't installed; override with `RESUME_TEX_COMPILER`).
+
+```bash
+# One-time local setup (macOS)
+brew install tectonic
+
+# Run both steps (tex generation + PDF compile)
+npm run resume:pdf
+
+# Or run steps individually
+npm run resume:tex      # src/data/resume.js → public/resume.tex
+npm run resume:compile  # public/resume.tex → public/resume.pdf
+```
+
+Notes:
+
+- `npm run resume:pdf` is wired into `prebuild`, so every `npm run build` regenerates the PDF automatically — to update the resume, just edit `src/data/resume.js` and build.
+- The first Tectonic compile downloads LaTeX packages (~2-3 min); subsequent compiles take seconds.
+- `public/resume.tex` and `public/resume.pdf` are build artifacts and gitignored.
+- In CI (`.github/workflows/deploy.yml`), Tectonic is installed and cached automatically — no manual steps needed.
 
 ## ⚡ Performance Optimizations
 
@@ -196,6 +224,8 @@ pk13055/
 │   ├── _headers            # Cache headers (for Cloudflare/Netlify)
 │   └── cloudflare-worker.js # Optional Cloudflare Worker
 ├── scripts/
+│   ├── generate-resume-tex.js    # Resume data → public/resume.tex
+│   ├── compile-resume-pdf.js     # public/resume.tex → public/resume.pdf
 │   └── purge-cloudflare-cache.js # Auto cache purging
 ├── vite.config.ts          # Vite configuration
 └── cloudflare-cache-rules.md # Cloudflare setup guide
@@ -226,7 +256,7 @@ npm run preview
 
 ## 🚢 Deployment
 
-The site automatically builds and deploys to GitHub Pages on push to master branch.
+The site automatically builds and deploys to GitHub Pages on push to the master branch via GitHub Actions (`.github/workflows/deploy.yml`), which installs Tectonic, builds the site (including the resume PDF), publishes `dist/` to GitHub Pages, and purges the Cloudflare cache (if the `CLOUDFLARE_API_TOKEN` / `CLOUDFLARE_ZONE_ID` repo secrets are set).
 
 Manual deployment:
 ```bash

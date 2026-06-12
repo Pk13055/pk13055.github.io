@@ -24,3 +24,7 @@ dist-ssr
 *.sw?
 docs/plans
 docs/workex
+
+# Generated resume artifacts (built from src/data/resume.js)
+public/resume.tex
+public/resume.pdf
